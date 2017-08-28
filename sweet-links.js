@@ -1,5 +1,5 @@
 //----------------------------------------------------------------
-//  Sweet Links V1.0
+//  Sweet Links V1.1
 //----------------------------------------------------------------
 // Built for the craic by Dave J. Fox
 // Twitter: 	@davejfox
@@ -14,9 +14,8 @@
  		sweetLinks: function(options) {
 
 			var defaults = {
-				selector : "a",
 				scrollTime : 1000,
-				newTabs : false,
+				newWindow : false,
 				classPrefix : "sl-",
 				fileTypes : ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]
 			};
@@ -53,7 +52,7 @@
 					} else {
 						
 						// Adds target="_blank" if desired.
-						if (defaults.newTabs === true) {
+						if (defaults.newWindow === true) {
 							$(this).attr("target", "_blank").addClass(defaults.classPrefix + "new-tab" + " " + defaults.classPrefix + "external");
 						} else {
 							$(this).addClass(defaults.classPrefix + "external");

@@ -1,0 +1,38 @@
+body {
+	background: #f1f1f1;
+
+	article {
+		display: block;
+		margin: 50px auto;
+		width: 100%;
+		max-width: ($rowWidth + px);
+		background: $white;
+	}
+
+	header {
+		background: #333;
+		padding: 50px;
+
+		* {
+			color: $white;
+		}
+	}
+
+	section {
+		padding: 50px;
+		border-bottom: 1px dashed #ccc;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	.large-4 {
+		position: fixed;
+		right: 0;
+	}
+
+	footer {
+
+	}
+}

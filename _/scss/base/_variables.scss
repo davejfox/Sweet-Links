@@ -1,0 +1,36 @@
+//----------------------------------------------------------------
+//	Internet Explorer 8 / Opera Mini Support
+//----------------------------------------------------------------
+// Change to "true" if you wish to support IE8 and Opera Mini. This
+// will add pixel support to measurements. You may need to use 
+// additional polyfills for IE8, such as respond.js and/or HTML5 Shiv
+$pxSupport: 			"false";  
+
+
+//----------------------------------------------------------------
+//	Grid Variables
+//----------------------------------------------------------------
+// * Values are in pixels for the sake of ease, but everything will 
+//   output in rem's. There will be pixel values added too, as a 
+//   fallback if $pxSupport is set to 'true'.
+$rowWidth: 				1240; 	// * 
+$columnGutter: 			50;		// *
+$totalColumns: 			12;
+
+$defaultFloat: 			left;
+$oppositeDirection: 	right;
+
+// Screen Size Name: 	"kick-in" size;
+$smallScreen:			640;
+$mediumScreen:			768;
+$largeScreen: 			1024;
+
+
+//----------------------------------------------------------------
+//	Colors
+//----------------------------------------------------------------
+$titleColor: 			#333;
+$bodyColor: 			#777;
+
+$black: 				#000;
+$white: 				#fff;

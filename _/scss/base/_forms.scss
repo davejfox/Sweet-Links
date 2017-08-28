@@ -1,0 +1,46 @@
+::-webkit-input-placeholder {
+	opacity: 1;
+}
+
+::-moz-placeholder {
+   opacity: 1; 
+}
+
+:-ms-input-placeholder {  
+	opacity: 1;
+}
+
+[placeholder]:-ms-input-placeholder {  
+	opacity: 1;
+}
+
+form {
+}
+
+fieldset {
+}
+
+input {
+}
+
+.selectWrapper {
+	
+	select {
+	}
+}
+
+input,
+textarea {
+
+   &:focus {
+   }
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"], 
+textarea {
+
+   &:focus {
+   }
+}

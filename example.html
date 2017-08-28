@@ -3,58 +3,118 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Sweet Links</title>
-		<link rel="stylesheet" href="style.css">
-		
+		<title>Sweet Links | A little jQuery plugin that can add some cool features to anchor tags on your website.</title>
+		<link rel="stylesheet" href="_/style.css">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="sweet-links.js"></script>
 	</head>
-	<body>
-		<section>
-			<div class="row">
-				<div class="column xsmall-12">
-					<h1>Sweet Links</h1>
-					<p>Thanks for giving Sweet Links a try! It's totally free to use - if you like it and use it, I'd love to hear about projects you used it on. If you don't like it, I'd love to hear why - constructive feedback is always welcome. Hit me up on <a href="https://www.twitter.com/davejfox/">Twitter</a> and check out some of my other bits and pieces on <a href="http://www.github.com/davejfox/">GitHub</a>.</p>
-					<p><a href="#show-me">Show me what it does.</a></p>
-					<p><a href="sv.pdf">Download a PDF</a></p>
-					<p><a href="sv.doc">Download a DOC</a></p>
-					<p><a href="sv.doc">Download a Spreadsheet</a></p>
+	<body class="plugin">
+		<article>
+			<header>
+				<div class="row">
+					<div class="column xsmall-12">
+						<h1>Sweet Links</h1>
+						<p>A little jQuery plugin that can add some cool features to anchor tags on your website.</p>
+						<p>View the project on <a href="https://github.com/davejfox/Sweet-Links">GitHub</a></p>
+					</div>
 				</div>
-			</div>
-		</section>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br>
-		<section id="show-me">
+			</header>
+			
 			<div class="row">
-				<div class="column xsmall-12">
-					<h1>That smooth scroll is one of the things!</h1>
-					<p>So what else does it do? I'm glad you ask. Sweet Links take a little effort out of some of the things you might wanna do with links, such as:</p>
-					<ul>
-						<li>(&#10003;) Smooth-scrolling to anchor links on the same page</li>
-						<li>(&#10003;) Automatically adds target="_blank" to links if they are to external destinations (some people like this, some don't - it's optional)</li>
-						<li>(&#10003;) Automatically adds the rel="external" attribute if the anchor links to an external destination.</li>
-						<li>(&#10003;) Automatically adds the Download attribute if the anchor links to a downloadable file, such as a PDF, Word Doc etc.</li>
-						<li>(&#10003;) Automatically adds the title attribute to all of your links, if it doesn't exist.</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		<section>
-			<div class="row">
-				<div class="column xsmall-12">
-					<h1>Dependencies</h1>
-					<p>Just jQuery, though I might try to write a vanilla JS version in the future.</p>
-				</div>
-			</div>
-		</section>
+				<div class="column large-8">
+					<section id="introduction">
+						<div class="row">
+							<div class="column xsmall-12">
+								<h2>What does Sweet Links do?</h2>
+								<p>A few things! Sweet Links can be applied to any or all <em>anchor</em> tags in your website. It will check the properties of the tag, and then execute the following functions:</p>
 
+								<ul>
+									<li>The script will check if the href points to a document, and if so, it will add a class that can be used for styling as well as the <em>download</em> attribute.</li>
+									<li>The script will check if the href points to an anchor on the same page, and if so, smooth scroll to that anchor.</li>
+									<li>The script will check if there is a <em>title</em> attribute, and if not it will add one using the text content of the link.</li>
+									<li>The script will check if the href points to an external destination. If so, it will add a class that can be used for styling, the <em>rel="external"</em> attribute will be added, and if desired - an optional <em>target="_blank"</em> (disabled by default) will be added.</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section id="documentation">
+						<div class="row">
+							<div class="column xsmall-12">
+								<h2>Documentation</h2>
+								<p>Sweet Links <strong>requires jQuery</strong>, so make sure this is referenced before Sweet Links. A version that does not require jQuery is in the works.</p>
+								<p>To add Sweet Links to your site, simply reference it after jQuery and then initialize it after document ready, as below:</p>
+
+<pre>
+<code>
+&lt;script type="text/javascript" src="~path~/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="~path~/sweet-links.js">&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks();
+	});	
+&lt;/script&gt;
+</code>
+</pre>
+								<h3>Options &amp; Classes</h3>
+								<h4>scrollTime</h4>
+								<h4>newWindow</h4>
+								<h4>classPrefix</h4>
+								<h4>fileTypes</h4>
+							</div>
+						</div>
+					</section>
+					<section id="browser-support">
+						<div class="row">
+							<div class="column xsmall-12">
+								<h2>Browser Support</h2>
+								<p>Should work on everything, as long as Javascript is enabled.</p>
+							</div>
+						</div>
+					</section>
+					<section id="bugs">
+						<div class="row">
+							<div class="column xsmall-12">
+								<h2>Bugs</h2>
+								<p>Please report any bugs or possible improvements via <a title="Report bugs via GitHub" href="https://github.com/davejfox/Sweet-Links/issues">GitHub</a>.</p>
+							</div>
+						</div>
+					</section>
+					<section id="updates">
+						<div class="row">
+							<div class="column xsmall-12">
+								<h2>Updates</h2>
+								<p>If you would like to get notified about important plugin updates, you can star and/or watch the repository on GitHub, and follow me on Twitter</p>
+							</div>
+						</div>
+					</section>
+					<section id="license">
+						<div class="row">
+							<div class="column xsmall-12">
+								<h2>License</h2>
+								<p>Sweet Links is available under MIT license and will always be kept this way. I will eventually build a WordPress Plugin based on this functionality so please be really cool and don't use my code to build your own. The WordPress plugin I plan to build will be have the same license.</p>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="column large-4">
+					<aside>
+						<nav>
+							<ul>
+								<li><a href="#introduction">Introduction</a></li>
+								<li><a href="#documentation">Documentation</a></li>
+								<li><a href="#browser-support">Browser Support</a></li>
+								<li><a href="#bugs">Bugs</a></li>
+								<li><a href="#updates">Updates</a></li>
+								<li><a href="#license">License</a></li>
+							</ul>
+						</nav>
+					</aside>
+				</div>
+			</div>
+			<footer>
+				
+			</footer>
+		</article>
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				$("a").sweetLinks();
