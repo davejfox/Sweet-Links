@@ -12,8 +12,16 @@
 //----------------------------------------------------------------
 //  Options
 //----------------------------------------------------------------
+// var defaults = {
+// 	scrollTime : 1000,
+// 	newTabs : false,
+// 	selector : "a",
+// 	classPrefix : "sl-",
+// 	fileTypes : ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]
+// };
+
 var $scrollTime = 1000; // The time that the smooth-scrolling action takes to complete, in milliseconds.
-var $newTabs = true; // true / false - whether you want external links to have target="_blank" added.
+var $newTabs = false; // true / false - whether you want external links to have target="_blank" added.
 var selector = "a"; // By default Sweet Links is applied to all <a> but you can change this here. Using a:not('class-name') might be useful.
 var $classPrefix = "sl-"; // All classes that are added to elements are prefixed with "sl-" but you can change that here if you like.
 var fileTypes = ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]; // Supported file types 
