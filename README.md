@@ -1,2 +1,2 @@
 # Sweet-Links
-A little javascript that adds some cool features to your links.
+A little jQuery plugub that can add some cool features to your links.

@@ -7,82 +7,75 @@
 //
 // Free to use, if you make something cool show me! 
 //----------------------------------------------------------------
+(function($){
 
+ 	$.fn.extend({
 
-//----------------------------------------------------------------
-//  Options
-//----------------------------------------------------------------
-// var defaults = {
-// 	scrollTime : 1000,
-// 	newTabs : false,
-// 	selector : "a",
-// 	classPrefix : "sl-",
-// 	fileTypes : ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]
-// };
+ 		sweetLinks: function(options) {
 
-var $scrollTime = 1000; // The time that the smooth-scrolling action takes to complete, in milliseconds.
-var $newTabs = false; // true / false - whether you want external links to have target="_blank" added.
-var selector = "a"; // By default Sweet Links is applied to all <a> but you can change this here. Using a:not('class-name') might be useful.
-var $classPrefix = "sl-"; // All classes that are added to elements are prefixed with "sl-" but you can change that here if you like.
-var fileTypes = ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]; // Supported file types 
+			var defaults = {
+				selector : "a",
+				scrollTime : 1000,
+				newTabs : false,
+				classPrefix : "sl-",
+				fileTypes : ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]
+			};
 
+			jQuery.fn.elementAttr = function(name) {  
+				return this.attr(name) !== undefined;
+			};
+			
+			$.extend(defaults, options);
 
-//----------------------------------------------------------------
-//  The Nitty Gritty
-//----------------------------------------------------------------
-jQuery(document).ready(function($) {
+			if($(this).length) {
+		
+				return this.each(function() {
 
-	jQuery.fn.elementAttr = function(name) {  
-		return this.attr(name) !== undefined;
-	};
+					// IF - internal link
+					if (location.hostname === this.hostname || !this.hostname.length) {
+						
+						if (location.pathname.replace(/^\//,"") === this.pathname.replace(/^\//,"") || location.hostname === this.hostname) {
 
-	if($(selector).length) {
-
-		$(selector).each(function(){
-
-			// IF - internal link
-			if (location.hostname === this.hostname || !this.hostname.length) {
-				
-				if (location.pathname.replace(/^\//,"") === this.pathname.replace(/^\//,"") || location.hostname === this.hostname) {
-
-					$(this).click(function(e) {
-						var target = $(this.hash);
-						target = target.length ? target : $("[name='" + this.hash.slice(1) +"']");
-							
-						if (target.length) {
-							e.preventDefault();
-							$(this).addClass($classPrefix + "smooth-scroll");
-							$("html, body").stop().animate({
-								scrollTop: target.offset().top
-							}, $scrollTime);
+							$(this).click(function(e) {
+								var target = $(this.hash);
+								target = target.length ? target : $("[name='" + this.hash.slice(1) +"']");
+									
+								if (target.length) {
+									e.preventDefault();
+									$(this).addClass(defaults.classPrefix + "smooth-scroll");
+									$("html, body").stop().animate({
+										scrollTop: target.offset().top
+									}, defaults.scrollTime);
+								}
+							});
 						}
+					// ELSE - external link
+					} else {
+						
+						// Adds target="_blank" if desired.
+						if (defaults.newTabs === true) {
+							$(this).attr("target", "_blank").addClass(defaults.classPrefix + "new-tab" + " " + defaults.classPrefix + "external");
+						} else {
+							$(this).addClass(defaults.classPrefix + "external");
+						}
+
+						// Adds rel="external" to external links.
+						if(!$(this).elementAttr("rel")) {
+							$(this).attr("rel", "external");
+						}
+					} // End of internal / external query.
+
+					// Adds title attribute if it doesn't exist already.
+					if(!$(this).elementAttr("title")) {
+						$(this).attr("title", $(this).text());
+					}
+
+					// If the href links to a file type, the download attribute will be added and a file type specific class will be added.
+					$.each(defaults.fileTypes, function(i, val) {
+						$("a[href*='" + val + "']").addClass(defaults.classPrefix + "download-" + val).attr("download", "Download " + val);
 					});
-				}
-			// ELSE - external link
-			} else {
-				
-				// Adds target="_blank" if desired.
-				if ($newTabs === true) {
-					$(this).attr("target", "_blank").addClass($classPrefix + "new-tab" + " " + $classPrefix + "external");
-				} else {
-					$(this).addClass($classPrefix + "external");
-				}
-
-				// Adds rel="external" to external links.
-				if(!$(this).elementAttr("rel")) {
-					$(this).attr("rel", "external");
-				}
-			} // End of internal / external query.
-
-			// Adds title attribute if it doesn't exist already.
-			if(!$(this).elementAttr("title")) {
-				$(this).attr("title", $(this).text());
+				});
 			}
-		});
-
-		// If the href links to a file type, the download attribute will be added and a file type specific class will be added.
-		$.each(fileTypes, function(i, val) {
-			$("a[href*='" + val + "']").addClass($classPrefix + "download-" + val).attr("download", "Download " + val);
-		});
-	}
-});
+		}
+	});
+})(jQuery);

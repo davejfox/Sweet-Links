@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="style.css">
 		
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="sweet-links-min.js"></script>
+		<script type="text/javascript" src="sweet-links.js"></script>
 	</head>
 	<body>
 		<section>
@@ -54,5 +54,11 @@
 				</div>
 			</div>
 		</section>
+
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$("a").sweetLinks();
+			});	
+		</script>
 	</body>
 </html>
