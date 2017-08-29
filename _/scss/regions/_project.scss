@@ -14,7 +14,51 @@
 		width: 100%;
 		height: 60px;
 		z-index: 10;
-		background: #06354b;
+		background: #113951;
+		@extend %clearfix;
+
+		h1 {
+			font-size: 26px;
+			display: inline-block;
+			padding: 0;
+			margin: 0;
+			float: left;
+
+			a {
+				color: $white;
+				height: 60px;
+				line-height: 60px;
+				padding: 0 25px;
+				display: block;
+			}
+		}
+
+		.button-group {
+			display: block;
+			float: right;
+			@extend %clearfix;
+
+			a {
+				display: inline-block;
+				height: 40px;
+				line-height: 40px;
+				font-size: 14px;
+				font-family: 'Roboto', sans-serif;
+				font-weight: 500;
+				color: #113951;
+				background: $white;
+				border-radius: 3px;
+				padding: 0 25px;
+				float: left;
+				text-transform: uppercase;
+				margin: 10px 10px 10px 0;
+
+				&:hover {
+					color: $white;
+					background: #8b670c;
+				}
+			}
+		}
 	}
 
 	aside {
@@ -24,7 +68,8 @@
 		top: 0;
 		bottom: 0;
 		background: #f1f1f1;
-		padding: 80px 0 0 0;
+		padding: 80px 25px;
+		border-right: 1px dashed #ccc;
 	}
 
 	section {
@@ -39,7 +84,7 @@
 
 	.text-wrapper {
 		width: 100%;
-		max-width: $rowWidth+px;
+		max-width: 800px;
 	}
 }
 
