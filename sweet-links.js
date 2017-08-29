@@ -15,7 +15,7 @@
 
 			var defaults = {
 				scrollTime : 1000,
-				scrollOffset : 50,
+				scrollOffset : 0,
 				newWindow : false,
 				classPrefix : "sl-",
 				fileTypes : ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]
@@ -44,7 +44,7 @@
 									e.preventDefault();
 									$(this).addClass(defaults.classPrefix + "smooth-scroll");
 									$("html, body").stop().animate({
-										scrollTop: target.offset().top-defaults.scrollOffset
+										scrollTop: target.offset().top+defaults.scrollOffset
 									}, defaults.scrollTime);
 								}
 							});
