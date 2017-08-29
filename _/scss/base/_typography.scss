@@ -1,33 +1,38 @@
-@import url("'http://fonts.googleapis.com/css?family=Rokkitt|Raleway:400,600' rel='stylesheet");
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500');
+
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
 //----------------------------------------------------------------
 //  Titles
 //----------------------------------------------------------------
 h1, h2, h3, h4, h5, h6,
 .alpha, .beta, .gamma, .delta, .epsilon, .zeta {
-    color: $titleColor;
-    font-family: 'Rokkitt', serif;
-    font-weight: 400;
+	color: $titleColor;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
 
-    &.punch {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 400;
-    }
+	&.punch {
+		font-family: 'Julius Sans One', sans-serif;
+	}
 }
 
 h1, 
 .alpha {
-    @include fontSize(48);
+	@include fontSize(48);
 }
 
 h2, 
 .beta {
-    @include fontSize(40);
+	@include fontSize(40);
 }
 
 h3, 
 .gamma {
-    @include fontSize(30);
+	@include fontSize(30);
 }
 
 h4, 
@@ -48,57 +53,70 @@ h6,
 //----------------------------------------------------------------
 p,
 li {
-    color: $bodyColor;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    @include fontSize(20);
-    line-height: 1.4;
+	color: $bodyColor;
+	font-family: 'Roboto', sans-serif;
+	@include fontSize(20);
+	line-height: 1.4;
+	font-weight: 300;
 
-    strong,
-    b,
-    a {
-        font-weight: 600;
-    }
+	strong,
+	b,
+	a {
+		font-weight: 500;
+	}
 
-    &.meta {
-        @include fontSize(12);
-        text-transform: uppercase;
-    }
+	&.meta {
+		@include fontSize(12);
+		text-transform: uppercase;
+	}
 
-    &.punch {
-        @include fontSize(28);
-        color: $titleColor;
-    }
+	&.punch {
+		@include fontSize(28);
+		color: $titleColor;
+	}
 }
 
 p,
 ul,
 ol {
-    margin: 30px 0 0 0;
+	margin: 30px 0 0 0;
 
-    &.punch {
-        margin: 0;
-    }
+	&.punch {
+		margin: 0;
+	}
 }
 
 ol,
 ul {
-    
-    li {
+	
+	li {
 
-    }
+	}
 }
 
 ul {
 
-    li {
+	li {
 
-    }
+	}
 }
 
 ol {
 
-    li {
+	li {
 
-    }
+	}
+}
+
+pre,
+code {
+	font-family: 'Droid Sans', sans-serif;
+}
+
+code {
+	display: block;
+	padding: 20px;
+	background: #ccc;
+	border: 1px dashed #333;
+	color: #333;
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Sweet Links | A little jQuery plugin that can add some cool features to anchor tags on your website.</title>
+		<link rel="stylesheet" href="_/style.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="sweet-links.js"></script>
+	</head>
+	<body class="plugin-docs">
+		<article>
+			<header>
+				<h1><a href="http://sweetlinks.davidfox.ie">Sweet Links</a></h1>
+				<div class="button-group">
+					<a href="https://github.com/davejfox/Sweet-Links">Documentation</a>
+					<a href="#">GitHub</a>
+					<a href="#">Direct Download</a>
+				</div>
+			</header>
+			<aside>
+				<nav>
+					<ul>
+						<li><a href="#introduction">Introduction</a></li>
+						<li><a href="#documentation">Documentation</a></li>
+						<li><a href="#browser-support">Browser Support</a></li>
+						<li><a href="#bugs">Bugs</a></li>
+						<li><a href="#updates">Updates</a></li>
+						<li><a href="#license">License</a></li>
+					</ul>
+				</nav>
+			</aside>
+			<section>
+				<p class="punch">A little jQuery plugin that can add some cool features to anchor tags on your website.</p>
+			</section>
+			<section id="introduction">
+				<div class="text-wrapper">
+					<h2>What does Sweet Links do?</h2>
+
+					<p>A few things! Sweet Links can be applied to any or all <em>anchor</em> tags in your website. It will check the properties of the tag, and then execute the following functions:</p>
+
+					<ul>
+						<li>The script will check if the href points to a document, and if so, it will add a class that can be used for styling as well as the <em>download</em> attribute.</li>
+						<li>The script will check if the href points to an anchor on the same page, and if so, smooth scroll to that anchor.</li>
+						<li>The script will check if there is a <em>title</em> attribute, and if not it will add one using the text content of the link.</li>
+						<li>The script will check if the href points to an external destination. If so, it will add a class that can be used for styling, the <em>rel="external"</em> attribute will be added, and if desired - an optional <em>target="_blank"</em> (disabled by default) will be added.</li>
+					</ul>
+					<p>The file is 2.5kb unminified and 1.5kb minified.</p>
+				</div>
+			</section>
+			<section id="documentation">
+				<h2>Documentation</h2>
+				<p>Sweet Links <strong>requires jQuery</strong>, so make sure this is referenced before Sweet Links. A version that does not require jQuery is in the works.</p>
+				<p>To add Sweet Links to your site, simply reference it after jQuery and then initialize it after document ready, as below:</p>
+
+<pre>
+<code>
+&lt;script type="text/javascript" src="~path~/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="~path~/sweet-links.js">&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks();
+	});	
+&lt;/script&gt;
+</code>
+</pre>
+				<h3>Options &amp; Classes</h3>
+				<h4>scrollTime</h4>
+				<h4>newWindow</h4>
+				<h4>classPrefix</h4>
+				<h4>fileTypes</h4>
+			</section>
+			<section id="browser-support">
+				<h2>Browser Support</h2>
+				<p>Should work on everything, as long as Javascript is enabled.</p>
+			</section>
+			<section id="bugs">
+				<h2>Bugs</h2>
+				<p>Please report any bugs or possible improvements via <a title="Report bugs via GitHub" href="https://github.com/davejfox/Sweet-Links/issues">GitHub</a>.</p>
+			</section>
+			<section id="updates">
+				<h2>Updates</h2>
+				<p>If you would like to get notified about important plugin updates, you can star and/or watch the repository on GitHub, and follow me on Twitter</p>
+			</section>
+			<section id="license">
+				<h2>License</h2>
+				<p>Sweet Links is available under MIT license and will always be kept this way. I will eventually build a WordPress Plugin based on this functionality so please be really cool and don't use my code to build your own. The WordPress plugin I plan to build will be have the same license.</p>
+			</section>
+			<footer>
+				<p>Brought to you by Dave J. Fox.</p>
+			</footer>
+		</article>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$("a").sweetLinks();
+			});	
+		</script>
+	</body>
+</html>
