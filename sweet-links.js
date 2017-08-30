@@ -2,8 +2,8 @@
 //  Sweet Links V1.1
 //----------------------------------------------------------------
 // Built for the craic by Dave J. Fox
-// Twitter: 	@davejfox
-// Github: 		davejfox
+// Twitter:		https://twitter.com/davejfox/
+// Github:		https://github.com/davejfox/
 //
 // Free to use, if you make something cool show me! 
 //----------------------------------------------------------------

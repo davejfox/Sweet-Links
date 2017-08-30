@@ -21,21 +21,33 @@ h1, h2, h3, h4, h5, h6,
 
 h1, 
 .alpha {
-	@include fontSize(48);
+	@include fontSize(38);
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	margin: 0 0 20px 0; 
+
+	@media screen and (min-width: $mediumScreen + px) {
+		@include fontSize(48);
+	}
 }
 
 h2, 
 .beta {
-	@include fontSize(40);
+	@include fontSize(32);
 	margin: 0 0 20px 0;
+
+	@media screen and (min-width: $mediumScreen + px) {
+		@include fontSize(40);
+	}
 }
 
 h3, 
 .gamma {
-	@include fontSize(30);
+	@include fontSize(24);
+
+	@media screen and (min-width: $mediumScreen + px) {
+		@include fontSize(30);
+	}
 }
 
 h4, 
@@ -62,9 +74,14 @@ p,
 li {
 	color: $bodyColor;
 	font-family: 'Roboto', sans-serif;
-	@include fontSize(18);
-	line-height: 1.4;
+	@include fontSize(16);
+	line-height: 1.5;
 	font-weight: 300;
+
+	@media screen and (min-width: $mediumScreen + px) {
+		@include fontSize(18);
+	}
+
 
 	strong,
 	b {
@@ -72,8 +89,12 @@ li {
 	}
 
 	&.punch {
-		@include fontSize(28);
+		@include fontSize(20);
 		color: $titleColor;
+
+		@media screen and (min-width: $mediumScreen + px) {
+			@include fontSize(28);
+		}
 	}
 }
 
@@ -94,17 +115,22 @@ pre {
 	section & {
 
 		a {
-			background: #718a99;
-			color: $white;
+			color: #113951;
 			padding: 0 1px;
 			display: inline-block;
 			border-bottom: 1px dashed #113951;
 			transition: background 0.3s ease;
 
 			&:hover {
+				color: $white;
 				background: #113951;
 			}
 		}
+	}
+
+	em,
+	i {
+		font-family: Georgia, serif;
 	}
 }
 
@@ -176,21 +202,27 @@ code {
 .icon-download:before {
 	content: "\e900";
 }
+
 .icon-open-book:before {
 	content: "\e901";
 }
+
 .icon-check:before {
 	content: "\e902";
 }
+
 .icon-menu:before {
 	content: "\e903";
 }
+
 .icon-github:before {
 	content: "\e904";
 }
+
 .icon-linkedin:before {
 	content: "\e905";
 }
+
 .icon-twitter:before {
 	content: "\e906";
 }

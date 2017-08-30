@@ -3,40 +3,40 @@
 //----------------------------------------------------------------
 .clearfix,
 %clearfix {
-    
-    &:after {
-        content: "";
-        width: 100%;
-        height: 0;
-        display: block;
-        clear: both;
-    }
+	
+	&:after {
+		content: "";
+		width: 100%;
+		height: 0;
+		display: block;
+		clear: both;
+	}
 }
 
 .circle,
 %circle {
-    @include pre(background-clip, padding-box);
-    @include pre(border-radius, 50%);
-    overflow: hidden;
+	@include pre(background-clip, padding-box);
+	@include pre(border-radius, 50%);
+	overflow: hidden;
 }
 
 .has-shadow,
 %has-shadow {
-    box-shadow: 0 2px 3px #ccc;
-    box-shadow: 0 0.2rem 0.3rem #ccc;
+	box-shadow: 0 2px 3px #ccc;
+	box-shadow: 0 0.2rem 0.3rem #ccc;
 }
 
 .box-shadow,
 %box-shadow {
-    -webkit-box-shadow: 0px 2px 3px rgba(138,133,127,0.3);
-       -moz-box-shadow: 0px 2px 3px rgba(138,133,127,0.3);
-            box-shadow: 0px 2px 3px rgba(138,133,127,0.3);
+	-webkit-box-shadow: 0px 2px 3px rgba(138,133,127,0.3);
+	   -moz-box-shadow: 0px 2px 3px rgba(138,133,127,0.3);
+			box-shadow: 0px 2px 3px rgba(138,133,127,0.3);
 }
 
 .aa,
 %aa {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -44,13 +44,13 @@
 //  General Elements
 //----------------------------------------------------------------
 a {
-    outline: none;
+	outline: none;
 }
 
 iframe, 
 object, 
 embed {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 
@@ -58,51 +58,51 @@ embed {
 //  Helper Classes
 //----------------------------------------------------------------
 .fl {
-    float: left;
+	float: left;
 }
 
 .fr {
-    float: right;
+	float: right;
 }
 
 .text-center {
-    text-align: center;
+	text-align: center;
 }
 
 .text-left {
-    text-align: left;
+	text-align: left;
 }
 
 .text-right {
-    text-align: right;
+	text-align: right;
 }
 
 .has-radius {
-    @include radius(3);
+	@include radius(3);
 }
 
 .no-wrap {
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
 .overflow-hidden {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
 
 .v-wrapper {
-    display: table;
-    height: 100%;
-    width: 100%;
+	display: table;
+	height: 100%;
+	width: 100%;
 
-    .v-inner {
-        display: table-cell;
-        height: 100%;
-        vertical-align: middle;
-    }
+	.v-inner {
+		display: table-cell;
+		height: 100%;
+		vertical-align: middle;
+	}
 }
 
 
@@ -110,15 +110,15 @@ embed {
 //  Backgrounds & Containers
 //----------------------------------------------------------------
 .bg-white {
-    background: $white;
+	background: $white;
 }
 
 .bg-black {
-    background: $black;
+	background: $black;
 
-    * {
-        color: $white;
-    }
+	* {
+		color: $white;
+	}
 }
 
 
@@ -128,49 +128,49 @@ embed {
 // Can be written as classes, like .border-white, .left-border-white,
 // .thick-border-white and so on. Add more border colours below.
 [class*="border-"] {
-    @include border(1, solid, transparent);
+	@include border(1, solid, transparent);
 }
 
 [class*="top-border"] {
-    @include border(1, solid, transparent, top);
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0;
+	@include border(1, solid, transparent, top);
+	border-bottom: 0;
+	border-left: 0;
+	border-right: 0;
 }
 
 [class*="bottom-border"] {
-    @include border(1, solid, transparent, bottom);
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+	@include border(1, solid, transparent, bottom);
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
 }
 
 [class*="left-border"] {
-    @include border(1, solid, transparent, left);
-    border-top: 0;
-    border-bottom: 0;
-    border-right: 0;
+	@include border(1, solid, transparent, left);
+	border-top: 0;
+	border-bottom: 0;
+	border-right: 0;
 }
 
 [class*="right-border"] {
-    @include border(1, solid, transparent, right);
-    border-top: 0;
-    border-bottom: 0;
-    border-left: 0;
+	@include border(1, solid, transparent, right);
+	border-top: 0;
+	border-bottom: 0;
+	border-left: 0;
 }
 
 [class*="thick-"] {
-    @include prop(border-width, 2);
+	@include prop(border-width, 2);
 }
 
 [class*="xthick-"] {
-    @include prop(border-width, 4);
+	@include prop(border-width, 4);
 }
 
 [class*="border-white"] {
-    border-color: #fff;
+	border-color: #fff;
 }
 
 [class*="border-black"] {
-    border-color: #000;
+	border-color: #000;
 }

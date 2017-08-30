@@ -1,6 +1,6 @@
 .plugin-docs {
 	background: $white;
-	padding: 100px 0 0 0;
+	padding: 70px 0 0 0;
 
 	article {
 		display: block;
@@ -65,10 +65,29 @@
 				padding: 0 15px;
 				margin: 15px 10px 15px 0;
 				transition: background 0.3s ease, color 0.3s ease;
+				position: relative;
 
 				@media screen and (min-width: $mediumScreen + px) {
-					padding: 0 25px;
+					padding: 0 25px 0 50px;
 					margin: 15px 15px 15px 0;
+				}
+
+				&:before {
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					height: 30px;
+					line-height: 30px;
+					text-align: center;
+					font-size: 16px;
+
+					@media screen and (min-width: $mediumScreen + px) {
+						left: 25px;
+						right: unset;
+						width: 25px;
+						text-align: left;
+					}
 				}
 
 				&:hover {
@@ -150,7 +169,7 @@
 		background: $white;
 
 		@media screen and (min-width: $mediumScreen + px) {
-			padding: 50px 50px 50px 290px;
+			padding: 80px 50px 80px 290px;
 		}
 
 		&:last-child {
@@ -166,29 +185,57 @@
 	footer {
 		background: #718a99;
 		padding: 50px 25px;
-		height: 1000px;
+		height: 100%;
+		border-bottom: 60px solid #113951;
 
 		@media screen and (min-width: $mediumScreen + px) {
-			padding: 50px 50px 50px 290px;
+			padding: 80px 50px 80px 290px;
 		}
 
 		* {
 			color: $white;
 		}
+
+		.punch {
+			margin-bottom: 20px;
+		}
+
+		h2 {
+			padding: 50px 0 0 0;
+		}
+
+		li {
+			margin-bottom: 50px;
+		}
+
+		[class^="icon-"] {
+			padding-left: 30px;
+			position: relative;
+			display: inline-block;
+			margin: 0 5px 0 0;
+
+			&:before {
+				position: absolute;
+				left: 5px;
+				top: 3px;
+				font-size: 18px;
+			}
+		}
 	}
 
 	.checklist {
-		@extend [class^="icon-"];
 
 		li {
 			padding: 0 0 10px 30px;
 			position: relative;
 
 			&:before {
+				@extend [class^="icon-"];
 				@extend .icon-check:before;
 				position: absolute;
 				left: 0;
-				top: 0;
+				top: 5px;
+				font-size: 16px;
 			}
 		}
 	}
