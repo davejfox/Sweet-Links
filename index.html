@@ -1,37 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Sweet Links | A little jQuery plugin that can add some cool features to anchor tags on your website.</title>
+		<title>Sweet Links | A little jQuery plugin that can add some cool attributes and features to anchor tags on your website.</title>
 		<link rel="stylesheet" href="_/style.css">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="sweet-links.js"></script>
+		<script type="text/javascript" src="sweet-links-min.js"></script>
 	</head>
 	<body class="plugin-docs">
 		<article>
 			<header>
-				<h1><a href="http://sweetlinks.davidfox.ie">Sweet Links</a></h1>
+				<h1><a href="http://sweetlinks.davidfox.ie">Sweet Links <small>v1.1</small></a></h1>
 				<div class="button-group">
-					<a href="https://github.com/davejfox/Sweet-Links">Documentation</a>
-					<a href="#">GitHub</a>
-					<a href="#">Direct Download</a>
+					<a class="icon-github" href="#"><span class="xsmall-hidden medium-inline">GitHub</span></a>
+					<a class="icon-download" href="#"><span class="xsmall-hidden medium-inline">Direct Download</span></a>
 				</div>
 			</header>
 			<aside>
 				<nav>
 					<ul>
-						<li><a href="#introduction">Introduction</a></li>
+						<li><a class="s ss" href="#introduction">Introduction</a></li>
 						<li><a href="#documentation">Documentation</a></li>
+						<li><a href="#options">Options &amp; Classes</a></li>
 						<li><a href="#browser-support">Browser Support</a></li>
 						<li><a href="#bugs">Bugs</a></li>
 						<li><a href="#updates">Updates</a></li>
 						<li><a href="#license">License</a></li>
 					</ul>
 				</nav>
+				<hr />
+				<p>
+					Sweet Links v1.1<br />
+					2.5kb as is, 1.5kb minified.
+				</p>
 			</aside>
 			<section>
-				<p class="punch">A little jQuery plugin that can add some cool features to anchor tags on your website.</p>
+				<div class="text-wrapper">
+					<h2>Sweet Links</h2>
+					<p class="punch">A little jQuery plugin that can add some cool attributes and features to anchor tags on your website.</p>
+				</div>
 			</section>
 			<section id="introduction">
 				<div class="text-wrapper">
@@ -39,7 +47,7 @@
 
 					<p>A few things! Sweet Links can be applied to any or all <em>anchor</em> tags in your website. It will check the properties of the tag, and then execute the following functions:</p>
 
-					<ul>
+					<ul class="checklist">
 						<li>The script will check if the href points to a document, and if so, it will add a class that can be used for styling as well as the <em>download</em> attribute.</li>
 						<li>The script will check if the href points to an anchor on the same page, and if so, smooth scroll to that anchor.</li>
 						<li>The script will check if there is a <em>title</em> attribute, and if not it will add one using the text content of the link.</li>
@@ -54,21 +62,86 @@
 					<p>Sweet Links <strong>requires jQuery</strong>, so make sure this is referenced before Sweet Links. A version that does not require jQuery is in the works.</p>
 					<p>To add Sweet Links to your site, simply reference it after jQuery and then initialize it after document ready, as below:</p>
 
-<pre>
-<code>&lt;script type="text/javascript" src="~path~/jquery.js"&gt;&lt;/script&gt;
+<pre><code>&lt;script type="text/javascript" src="~path~/jquery.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="~path~/sweet-links.js">&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
 	jQuery(document).ready(function($) {
 		$("a").sweetLinks();
 	});	
-&lt;/script&gt;</code>
-</pre>
-					<h3>Options &amp; Classes</h3>
+&lt;/script&gt;</code></pre>
+
+					<p>Simply using "&lt;a&gt;" as your selector will target all links on your site, so take that into account as you may want to only use the plugin on links within certain text-based areas of your site, or exclude anchor's with certain classes using the :not(~) selector.</p>
+				</div>
+			</section>
+
+			<section id="options">
+				<div class="text-wrapper">
+					<h2>Options &amp; Classes</h2>
 					<h4>scrollTime</h4>
+					<p>If a link points to an anchor on the same page (like the navigation on this page, for example), clicking on that link will smooth-scroll to that anchor. The scrollTime is how long this action will take in milliseconds. The default is 1000 (1000ms = 1 second), but you can change that to a time that suits your requirements, as demonstrated below.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks({
+			scrollTime: 3000
+		});
+	});	
+&lt;/script&gt;</code></pre>
+
 					<h4>scrollOffset</h4>
-					<h4>newWindow</h4>
-					<h4>classPrefix</h4>
+					<p>The smooth-scrolling action mentioned above can be offset with a pixel value. The default is 0, however, you may want to offset the smooth-scroll position to account for other elements around your anchor point. On this page for example, with the fixed header, I had to account for the height of it, so I offset the scroll position by -50, as below.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks({
+			scrollOffset: -50
+		});
+	});	
+&lt;/script&gt;</code></pre>
+
 					<h4>fileTypes</h4>
+					<p>Sweet Links will look for anchors that point to certain file types typically used to download resources. It will apply the download attribute, as well as adding a class that can be useful for styling. For example, if an anchor points to a PDF, the class "sl-pdf" will be applied. This can be useful in cases where designers / developers wish to use icon fonts or special treatments for certain link types. The classname prefix of "sl-" can be altered, as detailed below in the <strong>classPrefix</strong> section. The default file types are as follows;
+					<p>"doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers".</p>
+					<p>This list can be restricted or added to, as demonstrated below.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+	// Restricted to just doc and docx filetypes.
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks({
+			fileTypes : ["doc", "docx"] 
+		});
+	});	
+
+	// Filetype of "demo" added.
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks({
+			fileTypes : ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers", "demo"]
+		});
+	});	
+&lt;/script&gt;</code></pre>
+
+					<h4>classPrefix</h4>
+					<p>Any anchor tags targeted by Sweet Links will have a class added to them, so that any actions or behaviors can be easily styled if you wish to do that. The default prefix is "sl-" but this can be changed to whatever you like. For example, if you are using an icon font, and all your icon classes are prefixed with "icon-" you can change Sweet Links' prefix to match that.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks({
+			classPrefix : "icon-"
+		});
+	});	
+&lt;/script&gt;</code></pre>
+					
+					<h4>newWindow</h4>
+					<p>Opening external links in new tabs is controversial. Some people hate it, some people love it. I'm not here to take sides - it's an option that you can choose yourself. It is turned off by default.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+	jQuery(document).ready(function($) {
+		$("a").sweetLinks({
+			newWindow : true // false by default
+		});
+	});	
+&lt;/script&gt;</code></pre>
+
 				</div>
 			</section>
 			<section id="browser-support">
@@ -92,11 +165,32 @@
 			<section id="license">
 				<div class="text-wrapper">
 					<h2>License</h2>
-					<p>Sweet Links is available under MIT license and will always be kept this way. I will eventually build a WordPress Plugin based on this functionality so please be really cool and don't use my code to build your own. The WordPress plugin I plan to build will be have the same license.</p>
+					<p>Sweet Links is available under the MIT license and always will be. I will eventually build a WordPress Plugin based on this functionality so please be really cool and don't use my code to build your own. The WordPress plugin I plan to build will have the same license.</p>
 				</div>
 			</section>
 			<footer>
-				<p>Brought to you by Dave J. Fox.</p>
+				<div class="text-wrapper">
+					<p class="punch">If you've found Sweet Links useful, please spread the word.</p>
+					<div class="addthis_inline_share_toolbox"></div>
+
+					<h2>I've made some other stuff too...</h2>
+					<ul class="large-block-grid-2">
+						<li>
+							<a href="https://github.com/davejfox/Origin">
+								<h4>Origin</h4>
+								<p>Origin is a front-end grid based framework that allows you to start your site build nice'n'quick. There's a WordPress version too, and a Shopify version is in the works.</p>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/davejfox/Progress-Scroller">
+								<h4>Progress Scroller</h4>
+								<p>Progress Scroller is a work-in-progress-but-functional progress indicator that also gives your users a section-to-section navigation.</p>
+							</a>
+						</li>
+					</ul>
+
+					<p>Created by <a href="https://twitter.com/davejfox">Dave J. Fox</a>. Icons by <a href="http://www.entypo.com/">Entypo</a>.</p>
+				</div>
 			</footer>
 		</article>
 		<script type="text/javascript">
@@ -104,7 +198,8 @@
 				$("a").sweetLinks({
 					scrollOffset: -50
 				});
-			});	
+			});
 		</script>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59a67a7c0c1acaab"></script> 
 	</body>
 </html>

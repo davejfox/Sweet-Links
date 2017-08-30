@@ -49,6 +49,7 @@
 								}
 							});
 						}
+
 					// ELSE - external link
 					} else {
 						
