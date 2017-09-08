@@ -1,5 +1,5 @@
 //----------------------------------------------------------------
-//  Sweet Links V1.1
+//  Sweet Links V1.2
 //----------------------------------------------------------------
 // Built for the craic by Dave J. Fox
 // Twitter:		https://twitter.com/davejfox/
@@ -18,7 +18,7 @@
 				scrollOffset : 0,
 				newWindow : false,
 				classPrefix : "sl-",
-				fileTypes : ["doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf", "pages", "keynote", "numbers"]
+				fileTypes : [".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".pages", ".key", ".numbers"]
 			};
 
 			jQuery.fn.elementAttr = function(name) {  
@@ -31,8 +31,23 @@
 		
 				return this.each(function() {
 
-					// IF - internal link
-					if (location.hostname === this.hostname || !this.hostname.length) {
+					// If the href links to a file type, the download attribute will be added and a file type specific class will be added.
+					$.each(defaults.fileTypes, function(i, val) {
+						$("a[href*='" + val + "']").addClass(defaults.classPrefix + "download-" + val).attr("download", "Download " + val);
+					});
+
+					if (this.href.indexOf("mailto:") !== -1) {
+						$(this).addClass(defaults.classPrefix + "email");
+
+						if(!$(this).elementAttr("title")) {
+							
+							var fullhref = $(this).attr("href");
+							var email = fullhref.split('mailto:')[1];
+
+							$(this).attr("title", "Send an email to " + email);
+						}
+
+					} else if (location.hostname === this.hostname || !this.hostname.length) {
 						
 						if (location.pathname.replace(/^\//,"") === this.pathname.replace(/^\//,"") || location.hostname === this.hostname) {
 
@@ -70,11 +85,6 @@
 					if(!$(this).elementAttr("title")) {
 						$(this).attr("title", $(this).text());
 					}
-
-					// If the href links to a file type, the download attribute will be added and a file type specific class will be added.
-					$.each(defaults.fileTypes, function(i, val) {
-						$("a[href*='" + val + "']").addClass(defaults.classPrefix + "download-" + val).attr("download", "Download " + val);
-					});
 				});
 			}
 		}
