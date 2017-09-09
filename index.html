@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sweet Links | A little jQuery plugin that can add some cool attributes and features to anchor tags on your website.</title>
 		<link rel="stylesheet" href="_/style.css">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -78,6 +79,11 @@
 			<section id="options">
 				<div class="text-wrapper">
 					<h2>Options &amp; Classes</h2>
+					<p>Sweet Links will add a class to all targeted anchor tags, based on the destination of the href. This can be super useful when it comes to styling your links, and creating visual ques for your users about what they can expect before they click on the link. By default, all classes are prefixed with "sl-" and the rest of the class name will depend on the href, each classname is outlined below.</p>
+
+					<h4>classPrefix</h4>
+					<p>The default prefix is "<em>sl-</em>" but this can be changed to whatever you like. For example, if you are using an icon font, and all of your icon classes are prefixed with "<em>icon-</em>" you can change Sweet Links' prefix to match that, as shown below:</p>
+
 					<h4>scrollTime</h4>
 					<p>If a link points to an anchor on the same page<span class="xsmall-hidden medium-inline"> (like the navigation on this page, for example)</span>, clicking on that link will smooth-scroll to that position. The <em>scrollTime</em> is how long this action will take in milliseconds. The default is 1000 (1000ms = 1 second), but you can change that to a time that suits your requirements, as demonstrated below.</p>
 
@@ -122,9 +128,6 @@
 	});	
 &lt;/script&gt;</code></pre>
 					<p><strong>Class added: (classPrefix)(value). For example: .sl-doc, .sl-pdf etc.</strong></p>
-
-					<h4>classPrefix</h4>
-					<p>Any anchor tags targeted by Sweet Links will have a class added to them, so that any actions or behaviors can be easily styled if you wish to do that. The default prefix is "<em>sl-</em>" but this can be changed to whatever you like. For example, if you are using an icon font, and all of your icon classes are prefixed with "<em>icon-</em>" you can change Sweet Links' prefix to match that, as shown below:</p>
 
 <pre><code>&lt;script type="text/javascript"&gt;
 	jQuery(document).ready(function($) {

@@ -42,7 +42,7 @@
 						if(!$(this).elementAttr("title")) {
 							
 							var fullhref = $(this).attr("href");
-							var email = fullhref.split('mailto:')[1];
+							var email = fullhref.split("mailto:")[1];
 
 							$(this).attr("title", "Send an email to " + email);
 						}
